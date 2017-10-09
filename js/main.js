@@ -15,7 +15,7 @@
    limitations under the License.
 */
 
-var debugmode = false;
+var debugmode = false
 
 var states = Object.freeze({
    SplashScreen: 0,
@@ -41,14 +41,64 @@ var pipes = new Array();
 
 var replayclickable = false;
 
+var numJumps = 0;
+
 //sounds
 var volume = 30;
-var soundJump = new buzz.sound("assets/sounds/sfx_wing.ogg");
 var soundScore = new buzz.sound("assets/sounds/sfx_point.ogg");
 var soundHit = new buzz.sound("assets/sounds/sfx_hit.ogg");
 var soundDie = new buzz.sound("assets/sounds/sfx_die.ogg");
 var soundSwoosh = new buzz.sound("assets/sounds/sfx_swooshing.ogg");
+//piano notes from https://freesound.org/people/jobro/packs/2489/
+var G3 = new buzz.sound("assets/sounds/piano/G3.aac");
+var A3 = new buzz.sound("assets/sounds/piano/A3.aac");
+var B3 = new buzz.sound("assets/sounds/piano/B3.aac");
+var C4 = new buzz.sound("assets/sounds/piano/C4.aac");
+var D4 = new buzz.sound("assets/sounds/piano/D4.aac");
+var E4 = new buzz.sound("assets/sounds/piano/E4.aac");
+var F4 = new buzz.sound("assets/sounds/piano/F4.aac");
+var Fs4 = new buzz.sound("assets/sounds/piano/Fs4.aac");
+var G4 = new buzz.sound("assets/sounds/piano/G4.aac");
+var A4 = new buzz.sound("assets/sounds/piano/A4.aac");
 buzz.all().setVolume(volume);
+
+//Hymn 606 in the Mennonite Hymnal
+hymn = [
+      //Praise God from whom all blessing flow
+      C4,C4,C4,E4,E4,D4,E4,F4,D4,E4,
+      //Praise Him all creatures here below
+      G3,A3,B3,C4,D4,E4,F4,E4,D4,
+      //Praise Him all creatures here below
+      D4,E4,Fs4,G4,E4,D4,C4,B3,A3,G3,
+      //Praise Him above, Praise Him above
+      E4,E4,D4,C4,F4,F4,E4,D4,
+      //Praise Him above, ye heavenly hosts 
+      G4,G4,F4,E4,E4,A4,F4,D4,C4,C4,B3,
+      //Praise Him above, Praise Him above
+      G4,G4,G4,G4,A4,A4,A4,A4,
+      //Praise Him above, ye heavenly hosts
+      G4,E4,F4,G4,F4,E4,D4,C4,D4,E4,D4,
+      //Praise Father, Son, and Holy Ghost
+      G3,C4,D4,E4,D4,E4,Fs4,G4,
+      //Praise Father, Son, and Holy Ghost
+      G4,A4,G4,F4,E4,F4,G4,F4,E4,D4,E4,F4,G4,
+      //Praise Father, Son, and Holy Ghost
+      G4,A4,G4,F4,E4,F4,G4,F4,E4,D4,C4,
+      //Hallelujah, hallelujah, hallelujah amen
+      C4,B3,C4,C4,E4,D4,E4,E4,G4,F4,G4,F4,E4,D4,
+      //Amen Hallelujah
+      E4,D4,G3,A3,B3,G3,C4,C4,
+      //Hallelujah, Hallelujah
+      E4,F4,G4,A4,G4,F4,F4,E4,
+      //Hallelujah, Hallelujah
+      D4,E4,F4,G4,F4,E4,E4,D4,
+      //Hallelujah, Hallelujah, Hallelujah Amen
+      G3,G3,C4,C4,C4,C4,D4,D4,D4,D4,E4,E4,E4,F4,
+      //Amen, Hallelujah, Amen
+      D4,E4,C4,C4,D4,E4,F4,E4,
+      //Hallelujah, Amen
+      C4,C4,D4,C4,B3,C4
+];
 
 //loops
 var loopGameloop;
@@ -116,6 +166,9 @@ function showSplash()
    
    //fade in the splash
    $("#splash").transition({ opacity: 1 }, 2000, 'ease');
+
+   //reset jumps to reset hymn
+   numJumps = 0;
 }
 
 function startGame()
@@ -283,9 +336,16 @@ function screenClick()
 function playerJump()
 {
    velocity = jump;
-   //play jump sound
-   soundJump.stop();
-   soundJump.play();
+   playJumpSound();
+   numJumps++;
+}
+
+function playJumpSound()
+{
+   if(numJumps > 0) {
+      hymn[(numJumps - 1) % hymn.length].stop()
+   }
+   hymn[numJumps % hymn.length].play();
 }
 
 function setBigScore(erase)
