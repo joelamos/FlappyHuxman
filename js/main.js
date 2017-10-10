@@ -46,21 +46,21 @@ var numJumps = 0;
 //sounds
 var volume = 30;
 var formats = ["ogg", "aac"];
-var soundScore = new buzz.sound("assets/sounds/sfx_point.aac", {formats: formats});
+var soundScore = new buzz.sound("assets/sounds/sfx_point", {formats: formats});
 var soundHit = new buzz.sound("assets/sounds/sfx_hit", {formats: formats});
-var soundDie = new buzz.sound("assets/sounds/sfx_die.aac", {formats: formats});
-var soundSwoosh = new buzz.sound("assets/sounds/sfx_swooshing.aac", {formats: formats});
+var soundDie = new buzz.sound("assets/sounds/sfx_die", {formats: formats});
+var soundSwoosh = new buzz.sound("assets/sounds/sfx_swooshing", {formats: formats});
 //piano notes from https://freesound.org/people/jobro/packs/2489/
-var G3 = new buzz.sound("assets/sounds/piano/G3.aac", {formats: formats});
-var A3 = new buzz.sound("assets/sounds/piano/A3.aac", {formats: formats});
-var B3 = new buzz.sound("assets/sounds/piano/B3.aac", {formats: formats});
-var C4 = new buzz.sound("assets/sounds/piano/C4.aac", {formats: formats});
-var D4 = new buzz.sound("assets/sounds/piano/D4.aac", {formats: formats});
-var E4 = new buzz.sound("assets/sounds/piano/E4.aac", {formats: formats});
-var F4 = new buzz.sound("assets/sounds/piano/F4.aac", {formats: formats});
-var Fs4 = new buzz.sound("assets/sounds/piano/Fs4.aac", {formats: formats});
-var G4 = new buzz.sound("assets/sounds/piano/G4.aac", {formats: formats});
-var A4 = new buzz.sound("assets/sounds/piano/A4.aac", {formats: formats});
+var G3 = new buzz.sound("assets/sounds/piano/G3", {formats: formats});
+var A3 = new buzz.sound("assets/sounds/piano/A3", {formats: formats});
+var B3 = new buzz.sound("assets/sounds/piano/B3", {formats: formats});
+var C4 = new buzz.sound("assets/sounds/piano/C4", {formats: formats});
+var D4 = new buzz.sound("assets/sounds/piano/D4", {formats: formats});
+var E4 = new buzz.sound("assets/sounds/piano/E4", {formats: formats});
+var F4 = new buzz.sound("assets/sounds/piano/F4", {formats: formats});
+var Fs4 = new buzz.sound("assets/sounds/piano/Fs4", {formats: formats});
+var G4 = new buzz.sound("assets/sounds/piano/G4", {formats: formats});
+var A4 = new buzz.sound("assets/sounds/piano/A4", {formats: formats});
 buzz.all().setVolume(volume);
 
 //Hymn 606 in the Mennonite Hymnal
