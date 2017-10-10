@@ -45,10 +45,10 @@ var numJumps = 0;
 
 //sounds
 var volume = 30;
-var soundScore = new buzz.sound("assets/sounds/sfx_point.ogg");
-var soundHit = new buzz.sound("assets/sounds/sfx_hit.ogg");
-var soundDie = new buzz.sound("assets/sounds/sfx_die.ogg");
-var soundSwoosh = new buzz.sound("assets/sounds/sfx_swooshing.ogg");
+var soundScore = new buzz.sound("assets/sounds/sfx_point.aac");
+var soundHit = new buzz.sound("assets/sounds/sfx_hit.aac");
+var soundDie = new buzz.sound("assets/sounds/sfx_die.aac");
+var soundSwoosh = new buzz.sound("assets/sounds/sfx_swooshing.aac");
 //piano notes from https://freesound.org/people/jobro/packs/2489/
 var G3 = new buzz.sound("assets/sounds/piano/G3.aac");
 var A3 = new buzz.sound("assets/sounds/piano/A3.aac");
