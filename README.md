@@ -2,7 +2,7 @@ Flappy Huxman
 =========
 In celebration of Eastern Mennonite University's 100<sup>th</sup> anniversary
 
-Play online at [emu.edu/gaming-hub/flappy-huxman](http://emu.edu/gaming-hub/flappy-huxman)
+Play online at [emu.edu/gaming-hub/flappy-huxman-game](http://emu.edu/gaming-hub/flappy-huxman-game)
 
 Credits
 ------------
